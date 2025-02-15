@@ -1,0 +1,70 @@
+/* Spell Card Container */
+.spell-card {
+  display: flex;
+  flex-direction: column;
+  width: 404px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(27, 7, 44, 0.8);
+  backdrop-filter: blur(100px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header: Title & Favorite Icon */
+.spell-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px; /* Adds space between title and level */
+}
+
+/* Spell Title */
+.spell-title {
+  color: #ecf1f0;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+}
+
+/* Favorite Icon */
+.favorite-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Spell Level */
+.spell-level {
+  color: #0fae96;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+  margin-bottom: 8px; /* Adds spacing before description */
+}
+
+/* Spell Description */
+.spell-description {
+  color: #e8e8e8;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  text-align: left;
+}
+
+/* Fix for Handling Empty Descriptions */
+.spell-description::before {
+  content: attr(data-placeholder);
+  display: block;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.5);
+}

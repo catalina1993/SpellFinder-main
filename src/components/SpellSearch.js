@@ -1,102 +1,124 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../styles/SpellSearch.css";
-import Button from "./Button"; 
+import Button from "./Button";
 
-const SpellSearch = () => {
+const SpellSearch = ({ onFilter }) => {
   return (
     <div className="filter-box">
-      <Formik>
-        <Form className="spell-form">
-          {/* Spell Name Input */}
-          <div className="form-group">
-            <label htmlFor="spell-name">Spell Name</label>
-            <Field
-              type="text"
-              name="spell-name"
-              placeholder="Enter a spell name"
-              className="input-field"
-            />
-            <ErrorMessage
-              name="spell-name"
-              component="div"
-              className="error-message"
-            />
-          </div>
+      <Formik
+        initialValues={{
+          spellName: "",
+          class: "",
+          level: "",
+          school: "",
+          castTime: "",
+        }}
+        onSubmit={(values) => {
+          onFilter(values);
+        }}
+      >
+        {({ resetForm }) => (
+          <Form className="spell-form">
+            {/* Spell Name Input */}
+            <div className="form-group">
+              <label htmlFor="spellName">Spell Name</label>
+              <Field
+                type="text"
+                name="spellName"
+                placeholder="Enter a spell name"
+                className="input-field"
+              />
+              <ErrorMessage
+                name="spellName"
+                component="div"
+                className="error-message"
+              />
+            </div>
 
-          {/* Class Dropdown */}
-          <div className="form-group">
-            <label htmlFor="class">Class</label>
-            <Field as="select" name="class" className="input-field">
-              <option>Barbarian</option>
-              <option>Bard</option>
-              <option>Cleric</option>
-              <option>Druid</option>
-              <option>Fighter</option>
-              <option>Monk</option>
-              <option>Paladin</option>
-              <option>Ranger</option>
-              <option>Rogue</option>
-              <option>Sorcerer</option>
-              <option>Warlock</option>
-              <option>Wizard</option>
-            </Field>
-          </div>
+            {/* Class Dropdown */}
+            <div className="form-group">
+              <label htmlFor="class">Class</label>
+              <Field as="select" name="class" className="input-field">
+                <option value="">All Classes</option>
+                <option value="bard">Bard</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="warlock">Warlock</option>
+                <option value="wizard">Wizard</option>
+              </Field>
+            </div>
 
-          {/* Spell Level Dropdown */}
-          <div className="form-group">
-            <label htmlFor="spell-level">Spell Level</label>
-            <Field as="select" name="spell-level" className="input-field">
-              <option>1st</option>
-              <option>2nd</option>
-              <option>3rd</option>
-              <option>4th</option>
-              <option>5th</option>
-              <option>6th</option>
-              <option>7th</option>
-              <option>8th</option>
-              <option>9th</option>
-            </Field>
-          </div>
+            {/* Spell Level Dropdown */}
+            <div className="form-group">
+              <label htmlFor="level">Spell Level</label>
+              <Field as="select" name="level" className="input-field">
+                <option value="">All Levels</option>
+                {[...Array(10)].map((_, i) => (
+                  <option key={i} value={i}>
+                    {i === 0 ? "Cantrip" : `${i} Level`}
+                  </option>
+                ))}
+              </Field>
+            </div>
 
-          {/* Spell School Dropdown */}
-          <div className="form-group">
-            <label htmlFor="spell-school">Spell School</label>
-            <Field as="select" name="spell-school" className="input-field">
-              <option>Enchantment</option>
-              <option>Abjuration</option>
-              <option>Conjuration</option>
-              <option>Divination</option>
-              <option>Transmutation</option>
-              <option>Evocation</option>
-              <option>Illusion</option>
-              <option>Necromancy</option>
-            </Field>
-          </div>
+            {/* Spell School Dropdown */}
+            <div className="form-group">
+              <label htmlFor="school">Spell School</label>
+              <Field as="select" name="school" className="input-field">
+                <option value="">All Schools</option>
+                <option value="abjuration">Abjuration</option>
+                <option value="conjuration">Conjuration</option>
+                <option value="divination">Divination</option>
+                <option value="enchantment">Enchantment</option>
+                <option value="evocation">Evocation</option>
+                <option value="illusion">Illusion</option>
+                <option value="necromancy">Necromancy</option>
+                <option value="transmutation">Transmutation</option>
+              </Field>
+            </div>
 
-          {/* Casting Time Dropdown */}
-          <div className="form-group">
-            <label htmlFor="cast-time">Casting Time</label>
-            <Field as="select" name="cast-time" className="input-field">
-              <option>Instant</option>
-              <option>1 Action</option>
-              <option>1 Minute</option>
-              <option>10 Minutes</option>
-              <option>1 Hour</option>
-              <option>24 Hours</option>
-            </Field>
-          </div>
+            {/* Casting Time Dropdown */}
+            <div className="form-group">
+              <label htmlFor="castTime">Casting Time</label>
+              <Field as="select" name="castTime" className="input-field">
+                <option value="">All Casting Times</option>
+                <option value="Instant">Instant</option>
+                <option value="1 Action">1 Action</option>
+                <option value="1 Minute">1 Minute</option>
+                <option value="10 Minutes">10 Minutes</option>
+                <option value="1 Hour">1 Hour</option>
+                <option value="24 Hours">24 Hours</option>
+              </Field>
+            </div>
 
-          {/* Buttons */}
-          <div className="button-group">
-            <Button type="submit" variant="primary">
-              Filter Spell
-            </Button>
-            <Button type="reset" variant="secondary">
-              Reset Filter
-            </Button>
-          </div>
-        </Form>
+            {/* Buttons */}
+            <div className="button-group">
+              <Button type="submit" variant="primary">
+                Filter Spell
+              </Button>
+              <Button
+                type="reset"
+                variant="secondary"
+                onClick={() => {
+                  resetForm();
+                  onFilter({
+                    spellName: "",
+                    class: "",
+                    level: "",
+                    school: "",
+                    castTime: "",
+                  });
+                }}
+              >
+                Reset Filter
+              </Button>
+            </div>
+          </Form>
+        )}
       </Formik>
     </div>
   );

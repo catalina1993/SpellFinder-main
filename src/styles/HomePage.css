@@ -26,11 +26,12 @@ html {
 
 .filter-results-container {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 50px; 
   width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;
+  max-width: 1200px;
+  margin-top: 40px;
+  gap: 24px; /* Space between filter and cards */
 }
 
 /* Paragraph Section */
@@ -41,7 +42,6 @@ html {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 32px;
 }
 
 /* Heading Styles */
@@ -51,6 +51,7 @@ h1 {
   font-family: Roboto;
   font-size: 36px;
   font-weight: 600;
+  margin-top: 32px;
 }
 
 p {
@@ -71,12 +72,29 @@ p {
 
 /* Right Section: Spell Cards */
 .spell-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 24px; /* Space between cards */
+  flex: 2; /* Take up more space */
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  grid-column: span 2; /* Ensures it spans across both columns */
+}
+
+.spell-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
   gap: 24px;
-  flex-grow: 1; 
-  justify-content: flex-start;
-  min-height: 200px;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensures pagination stays inside */
 }
 
 /* Placeholder Text */
