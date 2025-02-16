@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Pagination.css";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const maxPageNumbersToShow = 3; // Show three pages at a time
+  const maxPageNumbersToShow = 3; 
   const [activeButton, setActiveButton] = useState(null);
 
   const getPageNumbers = () => {
