@@ -1,7 +1,7 @@
 .page-container {
   display: flex;
   width: 1440px;
-  padding: 120px 120px 0px; /* Add padding at the top */
+  padding: 120px 120px 0px; 
   flex-direction: column;
   align-items: center;
   gap: 32px;

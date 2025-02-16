@@ -1,10 +1,11 @@
+
 .section-card {
+  width: 100%; 
+  max-width: 1194px; 
   display: flex;
-  padding: 16px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  align-self: stretch;
+  padding: 16px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(27, 7, 44, 0.8);
@@ -22,6 +23,7 @@
 
 .section-card p,
 .section-card ul {
+  text-align: left;
   color: #d9d9d9;
   font-family: Roboto, sans-serif;
   font-size: 18px;

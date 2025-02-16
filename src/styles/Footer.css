@@ -4,6 +4,7 @@
   width: 100%;
   height: 80px;
   background: rgba(27, 7, 44, 0.6);
+  position: absolute; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,4 +53,42 @@
   font-weight: 600;
   line-height: 22px;
   letter-spacing: 0.1px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: auto; 
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 10px; 
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-right p {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    height: 20px; 
+  }
+
+  .footer-brand {
+    font-size: 1rem;
+  }
+
+  .footer-right p {
+    font-size: 13px;
+    line-height: 18px;
+  }
 }

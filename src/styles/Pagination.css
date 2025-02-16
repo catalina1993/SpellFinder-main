@@ -25,7 +25,7 @@
 }
 
 .pagination-button.clicked {
-  color: #12c1a8; /* Highlight color */
+  color: #12c1a8;
 }
 
 .pagination-button:disabled {
@@ -46,7 +46,7 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%; /* 32px */
+  line-height: 160%; 
   border: none;
   background: transparent;
   cursor: pointer;

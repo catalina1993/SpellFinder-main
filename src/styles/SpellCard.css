@@ -16,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px; /* Adds space between title and level */
+  margin-bottom: 8px; 
 }
 
 /* Spell Title */
@@ -44,7 +44,7 @@
   font-weight: 600;
   line-height: 30px;
   text-align: left;
-  margin-bottom: 8px; /* Adds spacing before description */
+  margin-bottom: 8px; 
 }
 
 /* Spell Description */

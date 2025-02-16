@@ -1,4 +1,3 @@
-/* Ensure proper body styles */
 body,
 html {
   margin: 0;
@@ -13,15 +12,14 @@ html {
     url(../assets/img/homepage_bg.png) lightgray 50% / cover no-repeat;
 }
 
-/* Main Conatiner */
+/* Main Container */
 
 .home-container {
-  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
+  overflow: hidden;
 }
 
 .filter-results-container {
@@ -31,7 +29,7 @@ html {
   width: 100%;
   max-width: 1200px;
   margin-top: 40px;
-  gap: 24px; /* Space between filter and cards */
+  gap: 24px; 
 }
 
 /* Paragraph Section */
@@ -73,9 +71,9 @@ p {
 /* Right Section: Spell Cards */
 .spell-cards-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
-  gap: 24px; /* Space between cards */
-  flex: 2; /* Take up more space */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px; 
+  flex: 2; 
   justify-content: center;
   align-items: center;
 }
@@ -85,16 +83,16 @@ p {
   justify-content: center;
   align-items: center;
   width: 100%;
-  grid-column: span 2; /* Ensures it spans across both columns */
+  grid-column: span 2; 
 }
 
 .spell-cards-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 24px;
   justify-content: center;
   align-items: center;
-  position: relative; /* Ensures pagination stays inside */
+  position: relative; 
 }
 
 /* Placeholder Text */
