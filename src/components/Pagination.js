@@ -22,12 +22,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   const handlePageChange = (page, buttonType) => {
-    setActiveButton(buttonType); // Set the clicked button as active
+    setActiveButton(buttonType); 
     onPageChange(page);
 
     setTimeout(() => {
-      setActiveButton(null); // Reset after a short delay
-    }, 200); // Adjust delay if needed
+      setActiveButton(null); 
+    }, 200); 
   };
 
   return (
