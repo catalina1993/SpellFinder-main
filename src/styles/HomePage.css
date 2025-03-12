@@ -12,92 +12,32 @@ html {
     url(../assets/img/homepage_bg.png) lightgray 50% / cover no-repeat;
 }
 
-/* Main Container */
-
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.filter-results-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+.container {
+  width: 90%;
   max-width: 1200px;
-  margin-top: 40px;
-  gap: 24px; 
-}
-
-/* Paragraph Section */
-.paragraph-container {
-  display: flex;
-  width: 788px;
-  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
   justify-content: center;
-  align-items: center;
   gap: 12px;
 }
 
-/* Heading Styles */
 h1 {
-  color: #d9d9d9;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 36px;
-  font-weight: 600;
-  margin-top: 32px;
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: white;
 }
 
-p {
-  color: #d9d9d9;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: 500;
+.hero-section p {
+  font-size: 16px;
+  color: #ccc;
 }
 
-/* Spell Filter Box */
-.spell-filter {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  height: 502px;
-}
-
-/* Right Section: Spell Cards */
-.spell-cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 24px; 
-  flex: 2; 
-  justify-content: center;
-  align-items: center;
-}
-
-.pagination-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  grid-column: span 2; 
-}
-
-.spell-cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 24px;
-  justify-content: center;
-  align-items: center;
-  position: relative; 
-}
-
-/* Placeholder Text */
-.placeholder-text {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
-  font-weight: 500;
+/* Tablet and mobile screens */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 30px 15px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
 }

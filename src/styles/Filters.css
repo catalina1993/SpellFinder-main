@@ -1,0 +1,83 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: rgba(27, 7, 44, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filters label {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px;
+}
+
+
+.filters input,
+.filters select {
+  background: #2b1845;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+.filters input:hover,
+.filters select:hover {
+  background: #42276d;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.filters input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+.reset-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.reset-btn {
+  background: white;
+  color: #1e1e1e;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.reset-btn:hover {
+  background: #d6d6d6;
+}
+
+/* Tablet and Mobile Screens */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .filters label {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logoImg from "../assets/img/logo.png";
-import "../styles/Header.css"; // Ensure you have Header.css
+import "../styles/Navbar.css";
 
-const Header = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -11,36 +12,34 @@ const Header = () => {
     <header className="custom-navbar">
       <div className="navbar-container">
         {/* Logo Section */}
-        <a href="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <img src={logoImg} alt="SpellFinder Logo" className="logo" />
           <span className="navbar-title">
             Spell<span className="highlight">Finder</span>
           </span>
-        </a>
+        </Link>
 
-        {/* Hamburger Menu for Mobile */}
+        {/* Mobile Menu Toggle */}
         <button className="menu-toggle" onClick={toggleMenu}>
-          ☰
+          {isOpen ? "✖" : "☰"}
         </button>
 
-        {/* Navbar Links */}
+        {/* Navigation Links */}
         <nav className={`navbar-links ${isOpen ? "active" : ""}`}>
-          <a href="/" className="nav-item">
+          <Link to="/" className="nav-item" onClick={() => setIsOpen(false)}>
             Home
-          </a>
-          <a href="/favorite" className="nav-item">
-            Favorite
-          </a>
-          <a href="/about" className="nav-item">
-            About Us
-          </a>
-          <a href="/help" className="nav-item">
-            Help
-          </a>
+          </Link>
+          <Link
+            to="/favorites"
+            className="nav-item"
+            onClick={() => setIsOpen(false)}
+          >
+            Favorites
+          </Link>
         </nav>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default Navbar;

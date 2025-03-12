@@ -1,4 +1,4 @@
-.filter-box {
+/* .filter-box {
   flex-direction: column;
   align-items: center;
   gap: 16px;
@@ -12,32 +12,32 @@
 }
 
 /* Form Title */
-.filter-title {
+/* .filter-title {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight: 600;
   text-align: center;
-}
+} */
 
 /* Form Fields */
-.form-group {
+/* .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
   width: 100%;
-}
+} */
 
-label {
+/* label {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 600;
-}
+} */
 
 /* Input Fields & Dropdowns */
-.input-field {
+/* .input-field {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -49,23 +49,23 @@ label {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   font-size: 16px;
-}
+} */
 
-.input-field:focus {
+/* .input-field:focus {
   border-color: #0fae96;
   outline: none;
-}
+} */
 
 /* Button Group */
-.button-group {
+/* .button-group {
   display: flex;
   width: 100%;
   gap: 10px;
   margin-top: 20px;
-}
+} */
 
 /* Primary Button */
-.btn.primary {
+/* .btn.primary {
   background: #0fae96;
   color: #fff;
   width: 100%;
@@ -76,9 +76,9 @@ label {
   border: 1px solid #e2dfdf;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-}
+} */
 
-.btn.primary:hover {
+/* .btn.primary:hover {
   background: #12c1a8;
 }
 
@@ -88,10 +88,10 @@ label {
 
 .btn.primary:active {
   background: #0c8b78;
-}
+} */
 
 /* Secondary Button */
-.btn.secondary {
+/* .btn.secondary {
   background: #fff;
   color: #1e1e1e;
   width: 100%;
@@ -102,9 +102,9 @@ label {
   border: 1px solid #e2dfdf;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-}
+} */
 
-.btn.secondary:hover {
+/* .btn.secondary:hover {
   background: #f0f0f0;
 }
 
@@ -114,4 +114,4 @@ label {
 
 .btn.secondary:active {
   background: #e0e0e0;
-}
+} */ */

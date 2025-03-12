@@ -1,85 +1,117 @@
 import React, { useState, useEffect } from "react";
+import SpellTable from "../components/SpellTable";
+import Filters from "../components/Filters";
 import "../styles/HomePage.css";
-import SpellSearch from "../components/SpellSearch";
-import SpellCard from "../components/SpellCard";
-import Pagination from "../components/Pagination";
+import "../styles/styles.css";
+import "../components/Pagination"
 
-const HomePage = () => {
-  const [spells, setSpells] = useState([]);
-  const [filteredSpells, setFilteredSpells] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const spellsPerPage = 4;
+const HomePage = ({ spells, favorites, setFavorites }) => {
+  const [expandedSpell, setExpandedSpell] = useState(null);
+  const [filteredSpells, setFilteredSpells] = useState(spells);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterLevel, setFilterLevel] = useState("all");
+  const [filterSchool, setFilterSchool] = useState("all");
+  const [filterClass, setFilterClass] = useState("all");
+  const [filterCastingTime, setFilterCastingTime] = useState("all");
 
   useEffect(() => {
-    const fetchSpells = async () => {
-      try {
-        const response = await fetch("https://www.dnd5eapi.co/api/spells");
-        const data = await response.json();
-        setSpells(data.results);
-        setFilteredSpells(data.results);
-      } catch (error) {
-        console.error("Error fetching spells:", error);
-      }
-    };
-    fetchSpells();
-  }, []);
+    let filtered = [...spells];
 
-  const totalPages = Math.ceil(filteredSpells.length / spellsPerPage);
+    if (searchTerm) {
+      filtered = filtered.filter((spell) =>
+        spell.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (filterLevel !== "all") {
+      filtered = filtered.filter(
+        (spell) => spell.level.toString() === filterLevel
+      );
+    }
+
+    if (filterSchool !== "all") {
+      filtered = filtered.filter(
+        (spell) =>
+          spell.school &&
+          spell.school.name.toLowerCase() === filterSchool.toLowerCase()
+      );
+    }
+
+    if (filterClass !== "all") {
+      filtered = filtered.filter(
+        (spell) =>
+          spell.classes &&
+          spell.classes.some(
+            (cls) => cls.name.toLowerCase() === filterClass.toLowerCase()
+          )
+      );
+    }
+
+    if (filterCastingTime !== "all") {
+      filtered = filtered.filter(
+        (spell) =>
+          spell.casting_time &&
+          spell.casting_time.toLowerCase() === filterCastingTime.toLowerCase()
+      );
+    }
+
+    setFilteredSpells(filtered);
+  }, [
+    searchTerm,
+    filterLevel,
+    filterSchool,
+    filterClass,
+    filterCastingTime,
+    spells,
+  ]);
+
+  const toggleFavorite = (spell) => {
+    setFavorites((prev) =>
+      prev.some((fav) => fav.index === spell.index)
+        ? prev.filter((fav) => fav.index !== spell.index)
+        : [...prev, spell]
+    );
   };
 
-  const indexOfLastSpell = currentPage * spellsPerPage;
-  const indexOfFirstSpell = indexOfLastSpell - spellsPerPage;
-  const currentSpells = filteredSpells.slice(
-    indexOfFirstSpell,
-    indexOfLastSpell
-  );
+  const toggleExpand = (spell) => {
+    setExpandedSpell(expandedSpell === spell ? null : spell);
+  };
+
+  const resetFilters = () => {
+    setSearchTerm("");
+    setFilterLevel("all");
+    setFilterSchool("all");
+    setFilterClass("all");
+    setFilterCastingTime("all");
+  };
 
   return (
-    <div className="home-container">
-      <div className="paragraph-container">
-        <h1>Discover Your Spells</h1>
-        <p>
-          Explore a vast collection of D&D spells tailored for every adventurer
-          and magic user. Cast a search or weave a filter to reveal hidden
-          magic!
-        </p>
-      </div>
-      <div className="filter-results-container">
-        <div>
-          <div className="spell-filter">
-            <SpellSearch
-              setFilteredSpells={setFilteredSpells}
-              spells={spells}
-            />
-          </div>
-          <p className="no-spells-text">
-            {filteredSpells.length === 0
-              ? "No spells found. Use the filter to search."
-              : ""}
-          </p>
-        </div>
-
-        {/* Right Side: Spell Cards */}
-        <div className="spell-cards-container">
-          {currentSpells.map((spell) => (
-            <SpellCard key={spell.index} spell={spell} />
-          ))}
-
-          {/* Move Pagination Inside */}
-          {filteredSpells.length > spellsPerPage && (
-            <div className="pagination-wrapper">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
-            </div>
-          )}
-        </div>
-      </div>
+    <div className="container">
+      <h1>D&D Spell Finder</h1>
+      <p>
+        Explore a vast collection of D&D spells tailored for every adventurer
+        and magic user Cast a search or weave a filter to reveal hidden magic!
+      </p>
+      <Filters
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterLevel={filterLevel}
+        setFilterLevel={setFilterLevel}
+        filterSchool={filterSchool}
+        setFilterSchool={setFilterSchool}
+        filterClass={filterClass}
+        setFilterClass={setFilterClass}
+        filterCastingTime={filterCastingTime}
+        setFilterCastingTime={setFilterCastingTime}
+        resetFilters={resetFilters}
+      />
+      <SpellTable
+        spells={filteredSpells}
+        favorites={favorites}
+        toggleFavorite={toggleFavorite}
+        toggleExpand={toggleExpand}
+        expandedSpell={expandedSpell}
+      />
     </div>
   );
 };

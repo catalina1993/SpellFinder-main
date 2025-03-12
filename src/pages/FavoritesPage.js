@@ -1,59 +1,36 @@
 import React, { useState, useEffect } from "react";
-import "../styles/FavoritesPage.css"; 
-import SpellCard from "../components/SpellCard";
-import Pagination from "../components/Pagination";
-import favoriteIcon from "../assets/img/favorite-page-header.svg";
+import SpellTable from "../components/SpellTable";
+import Footer from "../components/Footer";
 
-const FavoritesPage = () => {
-  const [favorites, setFavorites] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const spellsPerPage = 6; // 3 spells per row, 2 rows
+const FavoritesPage = ({ favorites, setFavorites }) => {
+  const [expandedSpell, setExpandedSpell] = useState(null);
+  const [filteredFavorites, setFilteredFavorites] = useState([]);
 
-  // Load favorites from local storage 
   useEffect(() => {
-    const savedFavorites =
-      JSON.parse(localStorage.getItem("favoriteSpells")) || [];
-    setFavorites(savedFavorites);
-  }, []);
+    setFilteredFavorites(favorites);
+  }, [favorites]);
 
-  // Pagination calculations
-  const totalPages = Math.ceil(favorites.length / spellsPerPage);
-  const indexOfLastSpell = currentPage * spellsPerPage;
-  const indexOfFirstSpell = indexOfLastSpell - spellsPerPage;
-  const currentSpells = favorites.slice(indexOfFirstSpell, indexOfLastSpell);
+  const toggleFavorite = (spell) => {
+    setFavorites((prev) => prev.filter((fav) => fav.index !== spell.index));
+  };
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  const toggleExpand = (spell) => {
+    setExpandedSpell(expandedSpell === spell ? null : spell);
   };
 
   return (
-    <div className="favorites-container">
-      {/* Favorite Header */}
-      <div className="favorite-header">
-        <img src={favoriteIcon} alt="Favorite Icon" className="favorite-icon" />
-        <h1>Your Favorite Spells</h1>
-      </div>
-
-      {/* Display Favorite Spells */}
-      <div className="favorite-spells-grid">
-        {currentSpells.length > 0 ? (
-          currentSpells.map((spell) => (
-            <SpellCard key={spell.index} spell={spell} />
-          ))
-        ) : (
-          <p className="no-favorites">No favorite spells yet. Add some!</p>
-        )}
-      </div>
-
-      {/* Pagination */}
-      {favorites.length > spellsPerPage && (
-        <div className="pagination-wrapper">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        </div>
+    <div className="container favorites-page">
+      <h1>Favorite Spells</h1>
+      {filteredFavorites.length > 0 ? (
+        <SpellTable
+          spells={filteredFavorites}
+          favorites={favorites}
+          toggleFavorite={toggleFavorite}
+          toggleExpand={toggleExpand}
+          expandedSpell={expandedSpell}
+        />
+      ) : (
+        <p>No favorite spells found.</p>
       )}
     </div>
   );
