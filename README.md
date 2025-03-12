@@ -14,11 +14,8 @@ Spell Finder is a React-based web application designed for Dungeons & Dragons (D
 
 ## 🖥 Screens
 - 📌 **Home Page** – Search & filter spells.
-- 📌 **Spell Results** – Displays a grid of spells matching the filter.
-- 📌 **Spell Details Modal** – View additional details when clicking on a spell.
+- 📌 **Spell Table Grid** – Displays a grid of spells matching the filter.
 - 📌 **Favorites Page** – Save and view favorite spells.
-- 📌 **About Page** – Information about the project and creators.
-- 📌 **Help Page** – Guidelines on how to use Spell Finder.
 
 ## 🛠 Tech Stack
 - ⚛️ **React.js** – Frontend framework
