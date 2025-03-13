@@ -24,15 +24,26 @@
 
 .filters input,
 .filters select {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none; 
   background: #2b1845;
-  color: #ffffff;
+  color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 10px;
   border-radius: 8px;
-  margin-top: 5px;
-  outline: none;
   font-size: 14px;
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.filters select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20px' height='20px'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
 }
 
 .filters input:hover,
@@ -40,6 +51,12 @@
   background: #42276d;
   border-color: rgba(255, 255, 255, 0.4);
 }
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #0fae96;
+}
+
 
 .filters input::placeholder {
   color: rgba(255, 255, 255, 0.6);
