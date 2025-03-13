@@ -29,7 +29,7 @@ The API response structure required additional parsing to display spell details 
 Some spells had missing attributes, requiring dynamic handling of empty values.
 -  **UI Responsiveness:**
 The spell filter and results layout needed multiple refinements for desktop and mobile views.
-Ensured that spell cards adapt to all screen sizes.
+Ensured that filter and table grid adapted to all screen sizes.
 -  **Dropdown & Form Styling:**
 Without Bootstrap, we had to custom-style dropdowns, form inputs, and buttons to fit the dark theme.
 Focused on accessibility and responsiveness.
