@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import FavoritesPage from "./pages/FavoritesPage";
-import "./styles/styles.css";
 import "./App.css";
 
 const API_URL = "https://www.dnd5eapi.co/api/spells";

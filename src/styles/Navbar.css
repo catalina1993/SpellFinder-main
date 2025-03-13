@@ -58,6 +58,12 @@
   color: #0fae96;
 }
 
+/* Highlight Active Link */
+.nav-item.active {
+  color: #0fae96; 
+  font-weight: bold;
+}
+
 .menu-toggle {
   display: none;
   background: none;
@@ -69,7 +75,7 @@
 }
 
 .menu-toggle:hover {
-  color: #E2DFDF;
+  color: #e2dfdf;
 }
 
 /* Tablet and Mobile */

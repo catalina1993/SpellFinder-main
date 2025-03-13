@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logoImg from "../assets/img/logo.png";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -26,12 +27,18 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <nav className={`navbar-links ${isOpen ? "active" : ""}`}>
-          <Link to="/" className="nav-item" onClick={() => setIsOpen(false)}>
+          <Link
+            to="/"
+            className={`nav-item ${location.pathname === "/" ? "active" : ""}`}
+            onClick={() => setIsOpen(false)}
+          >
             Home
           </Link>
           <Link
             to="/favorites"
-            className="nav-item"
+            className={`nav-item ${
+              location.pathname === "/favorites" ? "active" : ""
+            }`}
             onClick={() => setIsOpen(false)}
           >
             Favorites

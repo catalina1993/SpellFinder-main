@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import SpellTable from "../components/SpellTable";
 import Filters from "../components/Filters";
 import "../styles/HomePage.css";
-import "../styles/styles.css";
 import "../components/Pagination"
 
 const HomePage = ({ spells, favorites, setFavorites }) => {
