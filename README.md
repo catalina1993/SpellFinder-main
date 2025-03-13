@@ -24,16 +24,16 @@ Spell Finder is a React-based web application designed for Dungeons & Dragons (D
 -  **CSS (Custom Styling)** – No Bootstrap, fully custom UI
 
 ##  Challenges & Lessons Learned
--  **API Data Formatting**
+-  **API Data Formatting:**
 The API response structure required additional parsing to display spell details correctly.
 Some spells had missing attributes, requiring dynamic handling of empty values.
--  **UI Responsiveness**
+-  **UI Responsiveness:**
 The spell filter and results layout needed multiple refinements for desktop and mobile views.
 Ensured that spell cards adapt to all screen sizes.
--  **Dropdown & Form Styling**
+-  **Dropdown & Form Styling:**
 Without Bootstrap, we had to custom-style dropdowns, form inputs, and buttons to fit the dark theme.
 Focused on accessibility and responsiveness.
--  **Performance Optimization**
+-  **Performance Optimization:**
 Fetching API data in real time initially caused slow load times.
 Optimized caching API requests and reducing re-renders for better performance.
 Despite these challenges, team collaboration and problem-solving helped us refine the app into a functional and user-friendly tool.
