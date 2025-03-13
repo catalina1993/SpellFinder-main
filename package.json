@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
-    "axios": "^1.8.2",
+    "axios": "^1.8.3",
     "bootstrap": "^5.3.3",
     "bootstrap-social": "^5.1.1",
     "cra-template-redux": "2.0.0",
@@ -45,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

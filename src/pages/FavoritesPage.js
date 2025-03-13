@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SpellTable from "../components/SpellTable";
-import Footer from "../components/Footer";
 
 const FavoritesPage = ({ favorites, setFavorites }) => {
   const [expandedSpell, setExpandedSpell] = useState(null);
