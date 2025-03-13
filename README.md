@@ -30,10 +30,10 @@ Some spells had missing attributes, requiring dynamic handling of empty values.
 The spell filter and results layout needed multiple refinements for desktop and mobile views.
 Ensured that filter and table grid adapted to all screen sizes.
 -  **Dropdown & Form Styling:**
-Without Bootstrap, we had to custom-style dropdowns, form inputs, and buttons to fit the dark theme.
+Without Bootstrap, I had to custom-style dropdowns, form inputs, and buttons to fit the dark theme.
 Focused on accessibility and responsiveness.
 -  **Performance Optimization:**
 Fetching API data in real time initially caused slow load times.
 Optimized caching API requests and reducing re-renders for better performance.
-Despite these challenges, team collaboration and problem-solving helped us refine the app into a functional and user-friendly tool.
+Despite these challenges, problem-solving helped me refine the app into a functional and user-friendly tool.
 
