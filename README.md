@@ -10,7 +10,6 @@ Spell Finder is a React-based web application designed for Dungeons & Dragons (D
 -  Live API Data – Spells are fetched dynamically from the D&D 5E API.
 -  Favorite Spells List – Save your favorite spells for quick access.
 -  Mobile-Responsive UI – A clean and modern dark-themed interface.
--  About & Help Pages – Learn more about the tool and how to use it.
 
 ##  Screens
 - **Home Page** – Search & filter spells.
