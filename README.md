@@ -1,6 +1,8 @@
 #  Spell Finder
 A magical tool for discovering, filtering, and managing D&D spells.
 
+Live Demo -> https://dnd-spell-finder.netlify.app/
+
 ##  Overview
 Spell Finder is a React-based web application designed for Dungeons & Dragons (D&D) players to easily search, filter, and explore spells. Whether you're a Wizard, Cleric, or Sorcerer, this tool helps you quickly find spells that fit your character’s needs.
 
