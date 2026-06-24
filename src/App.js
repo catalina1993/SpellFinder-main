@@ -12,15 +12,13 @@ const API_URL = "https://www.dnd5eapi.co/api/spells";
 const App = () => {
   const [spells, setSpells] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [loading, setLoading] = useState(true); // 👈 new
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSpells = async () => {
       try {
         const response = await axios.get(API_URL);
         const spellList = response.data.results;
-
-        // 👇 replaced Promise.all with batched fetching
         const batchSize = 10;
         const spellDetails = [];
         for (let i = 0; i < spellList.length; i += batchSize) {
@@ -38,7 +36,7 @@ const App = () => {
       } catch (error) {
         console.error("Error fetching spells:", error);
       } finally {
-        setLoading(false); // 👈 done loading either way
+        setLoading(false);
       }
     };
 
@@ -49,7 +47,7 @@ const App = () => {
     <div className="main-container">
       <Navbar />
       <div className="content">
-        {loading ? ( // 👈 show spinner while fetching
+        {loading ? (
           <p style={{ color: "white", textAlign: "center", marginTop: "2rem" }}>
             Loading spells...
           </p>
